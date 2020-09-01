@@ -22,3 +22,4 @@ Route::get('/contacto','FrontController@contacto')->name('front.contacto');
 Route::get('/producto','FrontController@producto')->name('front.producto');
 Route::get('/carrito','FrontController@carrito')->name('front.carrito');
 Route::get('/checkout','FrontController@checkout')->name('front.checkout');
+Route::get('/catalogo','FrontController@catalogo')->name('front.catalogo');
