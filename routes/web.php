@@ -20,3 +20,5 @@ use Illuminate\Support\Facades\Route;
 Route::get('/','FrontController@index')->name('front.index');
 Route::get('/contacto','FrontController@contacto')->name('front.contacto');
 Route::get('/producto','FrontController@producto')->name('front.producto');
+Route::get('/carrito','FrontController@carrito')->name('front.carrito');
+Route::get('/checkout','FrontController@checkout')->name('front.checkout');

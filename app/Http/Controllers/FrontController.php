@@ -20,4 +20,14 @@ class FrontController extends Controller
     {
     		return view('front.producto');
     }
+
+    public function carrito()
+    {
+    		return view('front.carrito');
+    }
+
+    public function checkout()
+    {
+    		return view('front.checkout');
+    }
 }
