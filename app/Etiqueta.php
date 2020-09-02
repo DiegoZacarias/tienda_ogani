@@ -10,4 +10,9 @@ class Etiqueta extends Model
     {
     		return $this->belongsToMany(Producto::class);
     }
+
+    public function user()
+    {
+    		return $this->belongsTo(User::class);
+    }
 }

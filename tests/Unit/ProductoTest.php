@@ -5,6 +5,7 @@ namespace Tests\Unit;
 use App\Categoria;
 use App\Marca;
 use App\Producto;
+use App\User;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
@@ -49,5 +50,20 @@ class ProductoTest extends TestCase
 		     		]);
 
 		     		$this->assertInstanceOf(Collection::class,$producto->etiquetas);
-		     }    
+		     }
+
+		     public function test_producto_belongs_to_a_user()
+		         {
+		         		$categoria= $this->crearCategoria();
+		         		$marca = $this->crearMarca();
+		         		$user = $this->crearUser();
+
+		         		$producto = factory(Producto::class)->create([
+		         				'marca_id' => $marca->id,
+		         				'categoria_id' => $categoria->id, 
+		         				'user_id' => $user->id
+		         		]);
+
+		         		$this->assertInstanceOf(User::class,$producto->user);
+		         }    
 }

@@ -18,11 +18,14 @@ class CreateProductosTable extends Migration
             
             $table->bigInteger('categoria_id')->unsigned();
             $table->bigInteger('marca_id')->unsigned();
+            $table->bigInteger('user_id')->unsigned()->nullable();
+
 
             $table->timestamps();
 
             $table->foreign('categoria_id')->references('id')->on('categorias')->onDelete('cascade')->onUpdate('cascade');
             $table->foreign('marca_id')->references('id')->on('marcas')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('set null');
 
         });
     }

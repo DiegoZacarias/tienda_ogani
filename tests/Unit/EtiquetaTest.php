@@ -3,6 +3,7 @@
 namespace Tests\Unit;
 
 use App\Etiqueta;
+use App\User;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
@@ -18,4 +19,15 @@ class EtiquetaTest extends TestCase
 
 	   		$this->assertInstanceOf(Collection::class,$etiqueta->productos);
 	   }   
+
+	   public function test_etiqueta_belongs_to_a_user()
+	   {
+	   		$user = $this->crearUser();
+
+	   		$etiqueta = factory(Etiqueta::class)->create([
+	   				'user_id' => $user->id
+	   		]);
+
+	   		$this->assertInstanceOf(User::class,$etiqueta->user);
+	   }
 }

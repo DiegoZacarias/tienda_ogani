@@ -21,4 +21,9 @@ class Producto extends Model
     {
     		return $this->belongsToMany(Etiqueta::class);
     }
+
+    public function user()
+    {
+            return $this->belongsTo(User::class);
+    }
 }
