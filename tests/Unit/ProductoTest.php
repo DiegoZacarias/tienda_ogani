@@ -36,5 +36,18 @@ class ProductoTest extends TestCase
 		      		]);
 
 		      		$this->assertInstanceOf(Marca::class,$producto->marca);
-		      }      
+		      }  
+		      	#belongs to many etiquetas
+		 public function test_producto_has_etiquetas()
+		     {
+		     	$categoria = $this->crearCategoria();
+		     	$marca =	$this->crearMarca();
+
+		     		$producto = factory(Producto::class)->create([
+		     				'marca_id' => $marca->id, 
+		     				'categoria_id' => $categoria->id
+		     		]);
+
+		     		$this->assertInstanceOf(Collection::class,$producto->etiquetas);
+		     }    
 }
